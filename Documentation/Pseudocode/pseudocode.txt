@@ -1,0 +1,36 @@
+class Item 
+	string name
+	float price
+
+	Item(name, price)
+		name <- name
+		price <- price
+
+list items = [
+	new Item("Macaroons(1)", "1.50"),
+	new Item("Macaroons(8)", "8.00"),
+	new Item("Cupcake", "3.50"),
+	new Item("Slice", "3.25"),
+	new Item("Assorted Box", "12.50"),
+]
+
+class Order 
+	Function __init__(self) {
+		self.orderItems <- list
+		self.total <- 0.0f
+		self.menu()
+
+	Function question(self, question)
+		a <- input(question + "(y/n): ").strip(" ").lower()
+		if (a == "y") then
+			return true
+		else if (a == "n") then
+			return false
+		else 
+			self.menu("Input one of the two options")
+			return false
+
+	Function itemMenu(self)
+		names = [items[i].name for i in range(len(items))]
+
+Order order = new Order();
